@@ -1,21 +1,27 @@
 package com.ghabryella.course;
 
+import jakarta.persistence.*;
+
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
+@Entity
+@Table(name = "tbuser")
 public class User implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 8768956377052282850L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String email;
     private String phone;
     private String password;
 
-    public User(){
+    public User() {
     }
 
     public User(Long id, String name, String email, String phone, String password) {
