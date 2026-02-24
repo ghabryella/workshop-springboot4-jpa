@@ -1,4 +1,4 @@
-package com.ghabryella.course;
+package com.ghabryella.course.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

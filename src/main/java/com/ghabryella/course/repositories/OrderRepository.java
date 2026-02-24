@@ -1,6 +1,6 @@
-package com.ghabryella.course;
+package com.ghabryella.course.repositories;
 
-import org.aspectj.weaver.ast.Or;
+import com.ghabryella.course.entities.Order;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

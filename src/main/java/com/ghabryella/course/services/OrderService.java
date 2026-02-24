@@ -1,5 +1,7 @@
-package com.ghabryella.course;
+package com.ghabryella.course.services;
 
+import com.ghabryella.course.entities.Order;
+import com.ghabryella.course.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

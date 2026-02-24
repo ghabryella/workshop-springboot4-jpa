@@ -1,7 +1,8 @@
-package com.ghabryella.course;
+package com.ghabryella.course.services;
 
+import com.ghabryella.course.entities.User;
+import com.ghabryella.course.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
