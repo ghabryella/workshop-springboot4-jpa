@@ -1,5 +1,6 @@
 package com.ghabryella.course.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ghabryella.course.entities.pk.OrderItemPK;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
@@ -17,7 +18,8 @@ public class OrderItem implements Serializable {
     private static final long serialVersionUID = -948102482047493322L;
 
     @EmbeddedId
-    private OrderItemPK id;
+    private OrderItemPK id = new OrderItemPK();
+
     private Integer quantity;
     private Double price;
 
@@ -33,6 +35,7 @@ public class OrderItem implements Serializable {
 
     }
 
+    @JsonIgnore
     public Order getOrder() {
         return id.getOrder();
     }
