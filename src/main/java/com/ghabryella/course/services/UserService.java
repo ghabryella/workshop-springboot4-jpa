@@ -2,8 +2,11 @@ package com.ghabryella.course.services;
 
 import com.ghabryella.course.entities.User;
 import com.ghabryella.course.repositories.UserRepository;
+import com.ghabryella.course.services.exceptions.DatabaseException;
 import com.ghabryella.course.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.sql.PreparedStatement;
@@ -31,8 +34,15 @@ public class UserService {
     }
 
     public void delete(Long id) {
-        repository.deleteById(id);
+        try {
+            repository.deleteById(id);
+        } catch (EmptyResultDataAccessException e) {
+            throw new ResourceNotFoundException(id);
+        } catch (DataIntegrityViolationException e) {
+            throw new DatabaseException(e.getMessage());
+        }
     }
+
 
     public User update(Long id, User obj) {
         User entity = repository.getReferenceById(id);
